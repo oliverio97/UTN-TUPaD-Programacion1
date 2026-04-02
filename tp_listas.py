@@ -67,3 +67,62 @@ cant_pares = len(lista_pares)
 cant_impares = len(lista_impares)
 print(f"La lista de numeros pares tiene {cant_pares} numeros.")
 print(f"La lista de numeros impares tiene {cant_impares} numeros.")
+
+
+##### EJERCICIO 4 - LISTA CON VALORES REPETIDOS #####
+
+# creando lista con repetidos y borrando los mismos en nueva lista
+
+datos = [1, 3, 5, 3, 7, 1, 9, 5, 3]
+
+lista_sin_repetidos = []
+
+for i in datos:
+    if i not in lista_sin_repetidos:
+        lista_sin_repetidos.append(i)
+
+# mostrando elemento por elemento de la lista sin repetidos
+for i in range(len(lista_sin_repetidos)):
+    print(lista_sin_repetidos[i])
+
+
+##### EJERCICIO 5 - LISTA CON NOMBRES DE ESTUDIANTES PRESENTES #####
+
+lista_estudiantes = [
+    "Leonel Messi",
+    "Enzo Fernandez",
+    "Emiliano Martinez",
+    "Rodrigo DePaul",
+    "Lionel Scaloni",
+    "Julian Alvarez",
+    "Lautaro Martinez",
+    "Nicolas Paz",
+]
+
+# agregando nuevo estudiante o eliminando segun corresponda
+estudiante = input(
+    "Ingrese nombre del estudiante. Si ingresa un nombre ya existente, el mismo será borrado de la lista. En caso contrario, el nombre será añadido: "
+)
+if estudiante in lista_estudiantes:
+    lista_estudiantes.remove(estudiante)
+else:
+    lista_estudiantes.append(estudiante)
+
+for i in range(len(lista_estudiantes)):
+    print(lista_estudiantes[i])
+
+
+##### EJERCICIO 6 - ROTAR ELEMENTOS DE LISTA  #####
+
+# creando lista con numeros
+lista_con_numeros = [1, 2, 3, 4, 5, 6, 7]
+
+# pegando el ultimo numero al principio y sumandole el resto despues
+lista_con_numeros = lista_con_numeros[-1:] + lista_con_numeros[:-1]
+
+print(lista_con_numeros)
+
+
+##### EJERCICIO 7 - MATRIZ CON TEMPERATURAS  #####
+
+temperaturas = [[30, 33][15, 32][25, 33][8, 16][10, 19][12, 22][15, 34]]
