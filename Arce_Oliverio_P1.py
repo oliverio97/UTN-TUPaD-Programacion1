@@ -1,3 +1,9 @@
+# Opción 2: Al iniciar la Opción 2, haces existencias = [].
+# Esto está bien para el primer uso, pero si el usuario entra por error a la opción 2 más adelante,
+# vaciará todo su stock pero conservará la lista de herramientas, rompiendo la sincronía o perdiendo sus datos de ventas.
+# Podrías agregar un condicional para verificar si len(existencias) == len(herramientas) y avisarle que el stock ya fue cargado.
+
+
 # INICIALIZACION DE LISTAS PARALELAS
 herramientas = []
 existencias = []
