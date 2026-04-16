@@ -1,9 +1,3 @@
-# Opción 2: Al iniciar la Opción 2, haces existencias = [].
-# Esto está bien para el primer uso, pero si el usuario entra por error a la opción 2 más adelante,
-# vaciará todo su stock pero conservará la lista de herramientas, rompiendo la sincronía o perdiendo sus datos de ventas.
-# Podrías agregar un condicional para verificar si len(existencias) == len(herramientas) y avisarle que el stock ya fue cargado.
-
-
 # INICIALIZACION DE LISTAS PARALELAS
 herramientas = []
 existencias = []
@@ -59,25 +53,29 @@ while True:  # BUCLE PRINCIPAL CON OPCIONES
             )
 
         case "2":  # CARGA INICIAL DE EXISTENCIAS
-            existencias = []
             if len(herramientas) == 0:
                 print(
                     "No has ingresado ninguna herramienta. Recuerda realizar la carga de herramientas mediante la opcion 1 antes de agregar existencias\n"
                 )
             else:
-                for i in herramientas:
-                    existencia = input(
-                        f"Ingresa las unidades en stock para la herramienta {i}: "
-                    ).strip()
-                    while not existencia.isdigit() or not int(existencia) >= 0:
-                        print(
-                            "No has ingresado una opcion correcta. Ingresa solamente un numero positivo para el stock, o el numero cero en caso de no contar con existencias de la herramienta. \n"
-                        )
+                if len(existencias) == len(herramientas):
+                    print(
+                        "La carga inicial de existencias ya fue realizada. Si deseas agregar una nueva herramienta ingresa a la opcion 6."
+                    )
+                else:
+                    for i in herramientas:
                         existencia = input(
                             f"Ingresa las unidades en stock para la herramienta {i}: "
                         ).strip()
-                    existencias.append(int(existencia))
-                print("\nCarga de existencias realizada con exito. \n")
+                        while not existencia.isdigit() or not int(existencia) >= 0:
+                            print(
+                                "No has ingresado una opcion correcta. Ingresa solamente un numero positivo para el stock, o el numero cero en caso de no contar con existencias de la herramienta. \n"
+                            )
+                            existencia = input(
+                                f"Ingresa las unidades en stock para la herramienta {i}: "
+                            ).strip()
+                        existencias.append(int(existencia))
+                    print("\nCarga de existencias realizada con exito. \n")
 
         case "3":  # VISUALIZACION DE INVENTARIO CON HERRAMIENTAS Y STOCK
             if len(herramientas) == 0:
